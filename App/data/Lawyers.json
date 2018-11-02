@@ -1,0 +1,31 @@
+{
+	"dynamic": false,
+    "list": [
+		{
+			"name": "Lawyer1",
+			"email": "jvila@mern.com",
+			"phone": "00151829214",
+			"address": "Avenida Fontes Pereira de Melo, no. 2, Ramalde, 4149-012 Porto",
+			"countryCode": "PRT",
+			"program": "Prog1"
+		},	
+		{
+			"name": "Lawyer2",
+			"email": "jviova@mean.com",
+			"phone": "001514 2829214",
+			"address": "Avenida Fo Pera de Melo, no. 2, Ramalde, 4149-012 Porto",
+			"countryCode": "PRT",
+			"program": "Prog2"
+		},	
+		{			
+			"name": "Lawyer3",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		}
+	],
+	"id": "list_lawyers",
+	"type": "list"
+}

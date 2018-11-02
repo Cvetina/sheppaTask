@@ -1,0 +1,5 @@
+*.pptx
+*.doc
+*.docx
+node_modules/
+build/
