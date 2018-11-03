@@ -1,5 +1,5 @@
 import { initialState } from './initialState'
-import { LOAD_LAWYERS_SUCCESS, LOAD_LAWYERS_ERROR } from '../actions/lawyersActions'
+import { LOAD_LAWYERS_SUCCESS, LOAD_LAWYERS_ERROR, CHOOSE_LAWYER, RESET_LAWYER } from '../actions/lawyersActions'
 
 export default function addFavouritesReducer (state = initialState.lawyers, action) {
   switch(action.type) {
@@ -14,6 +14,16 @@ export default function addFavouritesReducer (state = initialState.lawyers, acti
       ...state,
       lawyers: action.payload,
       completed: false
+    }
+    case CHOOSE_LAWYER:
+    return {
+      ...state,
+      choosenLawyer: action.payload
+    }
+    case RESET_LAWYER:
+    return {
+      ...state,
+      choosenLawyer: null
     }
   }
     return state;

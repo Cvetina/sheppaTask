@@ -1,0 +1,118 @@
+.dropdownContainer {
+    width: 100%;
+    max-width: 350px;
+    min-height: 200px;
+    margin: 10% auto;
+    background-color: white;
+    font-family: sans-serif;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #008000;
+    background-color: #f2f2f4;
+    cursor: pointer;
+}
+
+.content {
+    padding: 20px;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.label {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.lawyerDetailsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.contactName {
+    height: 26px;
+    line-height: 26px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border: 1px solid #000;
+
+}
+
+.address {
+    text-align: right;
+    font-style: italic;
+}
+
+.button {
+    color: #52381e;
+    background-color:  #ccab63;
+    padding: 5px 10px;
+    border: 1px solid #52381e;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.selectContainer {
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.inputTypehead {
+    padding: 10px;
+    border: 1px solid #030303;
+    width: calc(100% - 20px);
+    &:focus {
+        outline: none;
+    }
+}
+
+.sugesstedList {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    max-width: 100%;
+    border-left: 1px solid #f2f2f4;
+    border-right: 1px solid #f2f2f4;
+    cursor: pointer;
+}
+
+.sugesstedItem {
+    padding: 10px;
+    border-bottom: 1px solid #f2f2f4;
+    color: #6d6d6d;
+    &:hover {
+        background-color: #f2f2f4;
+    }
+}
+
+.icon {
+    margin: 0 10px;
+    color: #ccab63;
+}
+
+.pencil {
+    color: #ccab63;
+    border: 1px solid #ccab63;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.arrow {
+    transition: all .3s ease;
+
+    &.active {
+        transform: rotate(-180deg)
+    }
+}

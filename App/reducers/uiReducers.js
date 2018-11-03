@@ -1,34 +1,29 @@
-// import { 
-//           TOGGLE_ACTIVE_MENU,
-//           SHOW_ACTIVE_SINGLE_PRODUCT_MODAL,
-//           HIDE_ACTIVE_SINGLE_PRODUCT_MODAL,
-//           HIDE_ACTIVE_MENU
-//         } from '../actions/uiActions'
+import { TOGGLE_CARD, SHOW_LAWYER_NAME, HIDE_LAWYER_NAME, SAVE_LAWYER_CARD } from '../actions/uiActions'
 
-// import { initialState } from './initialState';
+import { initialState } from './initialState';
 
-// export default function uiReducer(state = initialState, action) {  
-//   switch(action.type) {
-//     case TOGGLE_ACTIVE_MENU:
-//     return {
-//       ...state,
-//       toggleMenu: !state.toggleMenu
-//     }
-//     case HIDE_ACTIVE_MENU:
-//     return {
-//       ...state,
-//       toggleMenu: false
-//     }
-//     case SHOW_ACTIVE_SINGLE_PRODUCT_MODAL:
-//     return {
-//       ...state,
-//       itemID: action.item.id
-//     }
-//     case HIDE_ACTIVE_SINGLE_PRODUCT_MODAL:
-//     return {
-//       ...state,
-//       itemID: action.item
-//     }
-//   }
-//   return state;
-// }
+export default function uiReducer(state = initialState.ui, action) {  
+  switch(action.type) {
+    case TOGGLE_CARD:
+    return {
+      ...state,
+      toggleCard: !state.toggleCard
+    }
+    case SHOW_LAWYER_NAME:
+    return {
+      ...state,
+      showLawyerName: true
+    }
+    case HIDE_LAWYER_NAME:
+    return {
+      ...state,
+      showLawyerName: false
+    }
+    case SAVE_LAWYER_CARD:
+    return {
+      ...state,
+      savedLawyerCard: action.payload
+    }
+  }
+  return state;
+}

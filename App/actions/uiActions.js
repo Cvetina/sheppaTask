@@ -1,25 +1,24 @@
-export const TOGGLE_ACTIVE_MENU = 'TOGGLE_ACTIVE_MENU'
-export const HIDE_ACTIVE_MENU = 'HIDE_ACTIVE_MENU'
-export const SHOW_ACTIVE_SINGLE_PRODUCT_MODAL = 'SHOW_ACTIVE_SINGLE_PRODUCT_MODAL'
-export const HIDE_ACTIVE_SINGLE_PRODUCT_MODAL = 'HIDE_ACTIVE_SINGLE_PRODUCT_MODAL'
+export const TOGGLE_CARD = 'TOGGLE_CARD'
+export const SHOW_LAWYER_NAME = 'SHOW_LAWYER_NAME'
+export const HIDE_LAWYER_NAME = 'HIDE_LAWYER_NAME'
+export const SAVE_LAWYER_CARD = 'SAVE_LAWYER_CARD'
 
-export const hideMenu = () => ({
-  type: HIDE_ACTIVE_MENU
+export const toggleCard = () => ({
+  type: TOGGLE_CARD
  });
 
-export const toggleMenu = () => ({
-  type: TOGGLE_ACTIVE_MENU
+export const showLawyerName = () => ({
+  type: SHOW_LAWYER_NAME
  });
 
- export const showSingleProductModal = (item) => ({
-   type: SHOW_ACTIVE_SINGLE_PRODUCT_MODAL,
-   item: item
-  });
- 
- export const hideSingleProductModal = () => ({
-   type: HIDE_ACTIVE_SINGLE_PRODUCT_MODAL,
-   item: null
-  });
- 
+export const hideLawyerName = () => ({
+  type: HIDE_LAWYER_NAME
+ });
+
+export const saveLawyerCard = (index) => ({
+  type: SAVE_LAWYER_CARD,
+  payload: index
+ });
+
  
  
