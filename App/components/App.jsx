@@ -3,8 +3,8 @@ import { dispatch } from 'redux'
 import { connect } from "react-redux"
 import classNames from "classNames"
 import { loadLawyers }  from '../API/httpRequests'
-import { chooseLawyer, resetLawyer }  from '../actions/lawyersActions'
-import { toggleCard, saveSuggestion, toggleSuggestions, showErrorMessage }  from '../actions/uiActions'
+import { chooseLawyer }  from '../actions/lawyersActions'
+import { toggleCard, showErrorMessage, toggleSuggestions }  from '../actions/uiActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import SavedLawyerCard from './SavedLawyerCard'
@@ -32,6 +32,9 @@ export default class App extends React.Component {
   toggleLawyerCard () {
     this.props.dispatch(toggleCard());
     this.props.dispatch(chooseLawyer());
+    if (this.props.areSuggestionsVisible) {
+      this.props.dispatch(toggleSuggestions());
+    }
     this.props.dispatch(showErrorMessage(false));
   }
   render() {
@@ -70,7 +73,13 @@ export default class App extends React.Component {
                     dispatch={dispatch}
                   />
               </div>
-              <EmptyLawyerCard choosenLawyer={choosenLawyer} suggestions={suggestions} />
+              <EmptyLawyerCard
+                choosenLawyer={choosenLawyer}
+                suggestions={suggestions}
+                areSuggestionsVisible={areSuggestionsVisible}
+                showErrorMessage={errorMessage}
+                dispatch={dispatch}
+              />
           </div>
           }
         </div>

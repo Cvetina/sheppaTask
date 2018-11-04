@@ -1,18 +1,10 @@
 import React from 'react'
-import { dispatch } from 'redux'
-import { connect } from "react-redux"
 import classNames from "classNames"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { saveLawyerCard, toggleCard, toggleSuggestions, showErrorMessage }  from '../actions/uiActions'
 import style from './styles/App.scss'
 
-@connect((store) => {
-    return {
-        areSuggestionsVisible: store.ui.areSuggestionsVisible,
-        showErrorMessage: store.ui.showErrorMessage
-    };
-})
 export default class EmptyLawyerCard extends React.Component {
     saveChosenLawyerCard (choosenLawyer) {
         const { dispatch, suggestions, areSuggestionsVisible } = this.props;

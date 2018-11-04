@@ -22,8 +22,7 @@ const isDevBuild = () => {
 };
 const ExtractUglifyJSPlugin =  new UglifyJSPlugin({include: /\/App/}, {sourceMap: true});
 
-const CopyProjectPaths = new CopyWebpackPlugin([               
-  { from: 'App/images', to: 'App/images' },
+const CopyProjectPaths = new CopyWebpackPlugin([
   { from: 'App/data', to: 'App/data' }
   ]);
  
