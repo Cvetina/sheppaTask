@@ -23,7 +23,7 @@ export default function addFavouritesReducer (state = initialState.lawyers, acti
     case RESET_LAWYER:
     return {
       ...state,
-      choosenLawyer: null
+      choosenLawyer: []
     }
   }
     return state;

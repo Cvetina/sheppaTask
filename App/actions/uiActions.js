@@ -1,23 +1,24 @@
 export const TOGGLE_CARD = 'TOGGLE_CARD'
-export const SHOW_LAWYER_NAME = 'SHOW_LAWYER_NAME'
-export const HIDE_LAWYER_NAME = 'HIDE_LAWYER_NAME'
+export const TOGGLE_SUGGESTIONS = 'TOGGLE_SUGGESTIONS'
 export const SAVE_LAWYER_CARD = 'SAVE_LAWYER_CARD'
+export const SAVE_SUGGESTIONS = 'SAVE_SUGGESTIONS'
 
 export const toggleCard = () => ({
   type: TOGGLE_CARD
  });
 
-export const showLawyerName = () => ({
-  type: SHOW_LAWYER_NAME
+export const toggleSuggestions = () => ({
+  type: TOGGLE_SUGGESTIONS
  });
 
-export const hideLawyerName = () => ({
-  type: HIDE_LAWYER_NAME
- });
-
-export const saveLawyerCard = (index) => ({
+export const saveLawyerCard = (lawyer) => ({
   type: SAVE_LAWYER_CARD,
-  payload: index
+  payload: lawyer
+ });
+
+export const saveSuggestion = (suggestions) => ({
+  type: SAVE_SUGGESTIONS,
+  payload: suggestions
  });
 
  

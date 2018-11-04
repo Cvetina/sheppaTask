@@ -18,16 +18,16 @@ export function errorLoadingLowyarsList(lawyers) {
   };
 }
 
-export function chooseLawyer(index) {
+export function chooseLawyer(lawyerName) {
   return {
     type: CHOOSE_LAWYER, 
-    payload: index
+    payload: lawyerName
   };
 }
 
-export function resetLawyer(index) {
+export function resetLawyer() {
   return {
     type: RESET_LAWYER, 
-    payload: index
+    payload: null
   };
 }

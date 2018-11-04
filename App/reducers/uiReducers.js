@@ -1,4 +1,4 @@
-import { TOGGLE_CARD, SHOW_LAWYER_NAME, HIDE_LAWYER_NAME, SAVE_LAWYER_CARD } from '../actions/uiActions'
+import { TOGGLE_CARD, SAVE_SUGGESTIONS, SAVE_LAWYER_CARD, TOGGLE_SUGGESTIONS } from '../actions/uiActions'
 
 import { initialState } from './initialState';
 
@@ -9,15 +9,15 @@ export default function uiReducer(state = initialState.ui, action) {
       ...state,
       toggleCard: !state.toggleCard
     }
-    case SHOW_LAWYER_NAME:
+    case TOGGLE_SUGGESTIONS:
     return {
       ...state,
-      showLawyerName: true
+      areSuggestionsVisible: !state.areSuggestionsVisible
     }
-    case HIDE_LAWYER_NAME:
+    case SAVE_SUGGESTIONS:
     return {
       ...state,
-      showLawyerName: false
+      suggestions: action.payload
     }
     case SAVE_LAWYER_CARD:
     return {

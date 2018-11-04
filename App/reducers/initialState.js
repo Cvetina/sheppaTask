@@ -4,10 +4,11 @@ export const initialState = {
     completed: false
   },
   ui: {
-    choosenLawyer: 0,
-    showLawyerName: false,
+    choosenLawyer: null,
     toggleCard: false,
-    savedLawyerCard: 0
+    savedLawyerCard: '',
+    suggestions: [],
+    areSuggestionsVisible: false
   }
 }
      
