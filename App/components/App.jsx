@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import SavedLawyerCard from './SavedLawyerCard'
 import EmptyLawyerCard from './EmptyLawyerCard'
+import InputTypehaed from './InputTypehaed'
 import style from './styles/App.scss'
 
 @connect((store) => {
@@ -28,35 +29,6 @@ export default class App extends React.Component {
     this.props.dispatch(loadLawyers());
   }
 
-  changeInputField (e) {
-    const { dispatch, choosenLawyer, areSuggestionsVisible, lawyers, errorMessage } = this.props;
-    e.preventDefault();
-    if (choosenLawyer) {
-      dispatch(resetLawyer());
-    }
-    if (errorMessage) {
-      dispatch(showErrorMessage(false));
-    }
-    if (!areSuggestionsVisible) {
-      dispatch(toggleSuggestions());
-    }
-    const inputValue = e.target.value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-   
-    if (lawyers) {  
-        const suggestions = inputLength === 0
-                        ? []
-                        : lawyers.filter((lawyer) =>
-                          lawyer.name.toLowerCase().slice(0, inputLength) === inputValue)
-        dispatch(saveSuggestion(suggestions))
-    }
-  }
-
-  chooseLawyerCard (lawyerName) {
-      this.props.dispatch(toggleSuggestions());
-      this.props.dispatch(chooseLawyer(lawyerName));
-  }
-
   toggleLawyerCard () {
     this.props.dispatch(toggleCard());
     this.props.dispatch(chooseLawyer());
@@ -64,11 +36,12 @@ export default class App extends React.Component {
   }
   render() {
     const { lawyers, completed, choosenLawyer, savedLawyerCard, toggleCard,
-            suggestions, areSuggestionsVisible, errorMessage 
+            suggestions, areSuggestionsVisible, errorMessage, dispatch 
           } = this.props;
   
     const arrowStyle = classNames(style.arrow, { [style.active]: toggleCard});
     const inputTypeheadStyle = classNames(style.inputTypehead, { [style.error]: errorMessage});
+    const shouldShowSuggestions = suggestions && areSuggestionsVisible && suggestions.length !== 0;
   
     return (
         <div className={style.dropdownContainer}>
@@ -88,19 +61,14 @@ export default class App extends React.Component {
             <div className={style.content}>
               <div class={style.selectContainer}>
               < div className={style.label}>Name</div>
-                <input
-                  class={inputTypeheadStyle}
-                  placeholder="Type lawyer name"
-                  onChange={this.changeInputField.bind(this)}
-                  value={choosenLawyer}
+                  <InputTypehaed
+                    lawyers={lawyers}
+                    choosenLawyer={choosenLawyer}
+                    suggestions={suggestions}
+                    areSuggestionsVisible={areSuggestionsVisible}
+                    errorMessage={errorMessage}
+                    dispatch={dispatch}
                   />
-                <ul class={style.sugesstedList}>
-                {suggestions && areSuggestionsVisible && suggestions.map((lawyer, index) =>
-                  <li class={style.sugesstedItem} key={index} onClick={() => this.chooseLawyerCard(lawyer.name)}>
-                    {lawyer.name}
-                  </li>
-                )} 
-                </ul>
               </div>
               <EmptyLawyerCard choosenLawyer={choosenLawyer} suggestions={suggestions} />
           </div>
