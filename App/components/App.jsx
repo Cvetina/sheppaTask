@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import classNames from "classNames"
 import { loadLawyers }  from '../API/httpRequests'
 import { chooseLawyer, resetLawyer }  from '../actions/lawyersActions'
-import { toggleCard, saveSuggestion, toggleSuggestions }  from '../actions/uiActions'
+import { toggleCard, saveSuggestion, toggleSuggestions, showErrorMessage }  from '../actions/uiActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import SavedLawyerCard from './SavedLawyerCard'
@@ -19,7 +19,8 @@ import style from './styles/App.scss'
     toggleCard: store.ui.toggleCard,
     savedLawyerCard: store.ui.savedLawyerCard,
     suggestions: store.ui.suggestions,
-    areSuggestionsVisible: store.ui.areSuggestionsVisible
+    areSuggestionsVisible: store.ui.areSuggestionsVisible,
+    errorMessage: store.ui.showErrorMessage
   };
 })
 export default class App extends React.Component {
@@ -28,22 +29,26 @@ export default class App extends React.Component {
   }
 
   changeInputField (e) {
+    const { dispatch, choosenLawyer, areSuggestionsVisible, lawyers, errorMessage } = this.props;
     e.preventDefault();
-    if (this.props.choosenLawyer) {
-      this.props.dispatch(resetLawyer());
+    if (choosenLawyer) {
+      dispatch(resetLawyer());
     }
-    if (!this.props.areSuggestionsVisible) {
-      this.props.dispatch(toggleSuggestions());
+    if (errorMessage) {
+      dispatch(showErrorMessage(false));
+    }
+    if (!areSuggestionsVisible) {
+      dispatch(toggleSuggestions());
     }
     const inputValue = e.target.value.trim().toLowerCase();
     const inputLength = inputValue.length;
    
-    if (this.props.lawyers) {  
+    if (lawyers) {  
         const suggestions = inputLength === 0
                         ? []
-                        : this.props.lawyers.filter((lawyer) =>
+                        : lawyers.filter((lawyer) =>
                           lawyer.name.toLowerCase().slice(0, inputLength) === inputValue)
-        this.props.dispatch(saveSuggestion(suggestions))
+        dispatch(saveSuggestion(suggestions))
     }
   }
 
@@ -54,10 +59,16 @@ export default class App extends React.Component {
 
   toggleLawyerCard () {
     this.props.dispatch(toggleCard());
+    this.props.dispatch(chooseLawyer());
+    this.props.dispatch(showErrorMessage(false));
   }
   render() {
-    const { lawyers, completed, choosenLawyer, savedLawyerCard, toggleCard, suggestions, areSuggestionsVisible } = this.props;
+    const { lawyers, completed, choosenLawyer, savedLawyerCard, toggleCard,
+            suggestions, areSuggestionsVisible, errorMessage 
+          } = this.props;
+  
     const arrowStyle = classNames(style.arrow, { [style.active]: toggleCard});
+    const inputTypeheadStyle = classNames(style.inputTypehead, { [style.error]: errorMessage});
   
     return (
         <div className={style.dropdownContainer}>
@@ -78,7 +89,7 @@ export default class App extends React.Component {
               <div class={style.selectContainer}>
               < div className={style.label}>Name</div>
                 <input
-                  class={style.inputTypehead}
+                  class={inputTypeheadStyle}
                   placeholder="Type lawyer name"
                   onChange={this.changeInputField.bind(this)}
                   value={choosenLawyer}

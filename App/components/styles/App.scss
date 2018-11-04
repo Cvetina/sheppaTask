@@ -1,24 +1,31 @@
+@import './colors.scss';
+
+%flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .dropdownContainer {
     width: 100%;
     max-width: 350px;
     min-height: 200px;
     margin: 10% auto;
     font-family: sans-serif;
-    color: #494949;
+    color: $gray-black;
     background-color: white;
     box-shadow: 0px 0px 26px -2px rgba(0, 0, 0,.3);
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
+    @extend %flex-row;
     justify-content: space-between;
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px 20px;
-    border: 1px solid #008000;
+    border: 1px solid $green;
     border-radius: 3px 3px 0 0;
-    background-color: #f2f2f4;
+    background-color: $white-gray;
     cursor: pointer;
 }
 
@@ -33,12 +40,10 @@
 }
 
 .lawyerDetailsRow {
-    display: flex;
-    flex-direction: row;
+    @extend %flex-row;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #f2f2f4;
+    border-bottom: 1px solid $white-gray;
 }
 
 .contactName {
@@ -46,14 +51,12 @@
     line-height: 26px;
     margin: 10px 0;
     padding-left: 10px;
-    border: 1px solid #000;
+    border: 1px solid  $gray-black;
 
 }
 
 .emailContainer, .phoneContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @extend %flex-row;
 }
 
 .address {
@@ -62,13 +65,16 @@
 }
 
 .button {
-    color: #52381e;
-    background-color:  #ccab63;
+    color: $dark-brown;
+    background-color: $light-brown;
     padding: 5px 10px;
     margin: 15px 0;
-    border: 1px solid #52381e;
+    border: 1px solid $dark-brown;
     border-radius: 3px;
     cursor: pointer;
+    &:focus {
+        outline: none;
+    }
 }
 
 .selectContainer {
@@ -78,10 +84,14 @@
 
 .inputTypehead {
     padding: 10px;
-    border: 1px solid #030303;
+    border: 1px solid $gray-black;
     width: calc(100% - 20px);
+    transition: all .3s ease;
     &:focus {
         outline: none;
+    }
+    &.error {
+        border: 1px solid $red;
     }
 }
 
@@ -90,28 +100,28 @@
     margin: 0;
     list-style-type: none;
     max-width: 100%;
-    border-left: 1px solid #f2f2f4;
-    border-right: 1px solid #f2f2f4;
+    border-left: 1px solid $white-gray;
+    border-right: 1px solid $white-gray;
     cursor: pointer;
 }
 
 .sugesstedItem {
     padding: 10px;
-    border-bottom: 1px solid #f2f2f4;
-    color: #6d6d6d;
+    border-bottom: 1px solid $white-gray;
+    color: $mid-gray;
     &:hover {
-        background-color: #f2f2f4;
+        background-color: $white-gray;
     }
 }
 
 .icon {
     margin: 0 10px;
-    color: #ccab63;
+    color: $light-brown;
 }
 
 .pencil {
-    color: #ccab63;
-    border: 1px solid #ccab63;
+    color: $light-brown;
+    border: 1px solid $light-brown;
     padding: 5px;
     margin: 10px;
     border-radius: 100%;
@@ -123,5 +133,21 @@
 
     &.active {
         transform: rotate(-180deg)
+    }
+}
+
+.errorMessage {
+    font-size: 14px;
+    color: $red;
+    padding: 5px;
+    opacity: 0;
+    transition: all .3s ease;
+
+    .icon {
+        color: $red;
+    }
+
+    &.error {
+        opacity: 1;
     }
 }

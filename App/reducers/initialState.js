@@ -1,14 +1,15 @@
 export const initialState = {
   lawyers: {
     lawyers: [],
-    completed: false
+    completed: false,
+    choosenLawyer: null,
   },
   ui: {
-    choosenLawyer: null,
     toggleCard: false,
     savedLawyerCard: '',
     suggestions: [],
-    areSuggestionsVisible: false
+    areSuggestionsVisible: false,
+    showErrorMessage: false
   }
 }
      
