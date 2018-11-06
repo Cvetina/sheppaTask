@@ -19,9 +19,7 @@ export default class InputTypehaed extends React.Component {
     if (errorMessage) {
       dispatch(showErrorMessage(false));
     }
-    if (!areSuggestionsVisible) {
-      dispatch(toggleSuggestions());
-    }
+
     const inputValue = e.target.value.trim().toLowerCase();
     const inputLength = inputValue.length;
    
@@ -36,8 +34,9 @@ export default class InputTypehaed extends React.Component {
       this.props.dispatch(showErrorMessage(false));
   }
 
-  onFocus (e) {
+  handleInputClick (e) {
     e.preventDefault();
+    this.props.dispatch(toggleSuggestions());
     this.changeInputField(e)
   }
 
@@ -64,7 +63,7 @@ export default class InputTypehaed extends React.Component {
                 placeholder="Please select lawyer name"
                 onChange={this.changeInputField.bind(this)}
                 value={choosenLawyer}
-                onFocus={this.onFocus.bind(this)}
+                onClick={this.handleInputClick.bind(this)}
                 />
             <FontAwesomeIcon className={style.dropdownArrow} icon={faCaretDown} />
             <ul class={style.sugesstedList}>
