@@ -2,7 +2,7 @@
 	"dynamic": false,
     "list": [
 		{
-			"name": "Lawyer1",
+			"name": "Liam",
 			"email": "jvila@mern.com",
 			"phone": "00151829214",
 			"address": "Avenida Fontes Pereira de Melo, no. 2, Ramalde, 4149-012 Porto",
@@ -10,7 +10,7 @@
 			"program": "Prog1"
 		},	
 		{
-			"name": "Lawyer2",
+			"name": "Antony",
 			"email": "jviova@mean.com",
 			"phone": "001514 2829214",
 			"address": "Avenida Fo Pera de Melo, no. 2, Ramalde, 4149-012 Porto",
@@ -18,7 +18,63 @@
 			"program": "Prog2"
 		},	
 		{			
-			"name": "Lawyer3",
+			"name": "Bob",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Dayvid",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Lory",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Stefan",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Ema",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Liana",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Kate",
+			"email": "jvilana@mcan.com",
+			"phone": "001514214",
+			"address": "Avenida N.º 282 4150-516 Porto",
+			"countryCode": "PRT",
+			"program": "FONTINHA"
+		},	
+		{			
+			"name": "Katerina",
 			"email": "jvilana@mcan.com",
 			"phone": "001514214",
 			"address": "Avenida N.º 282 4150-516 Porto",

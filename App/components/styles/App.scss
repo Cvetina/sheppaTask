@@ -78,6 +78,7 @@
 }
 
 .selectContainer {
+    position: relative;
     width: 300px;
     margin-bottom: 15px;
 }
@@ -87,6 +88,7 @@
     border: 1px solid $gray-black;
     width: calc(100% - 20px);
     transition: all .3s ease;
+    cursor: pointer;
     &:focus {
         outline: none;
     }
@@ -96,12 +98,20 @@
 }
 
 .sugesstedList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
     padding: 0;
     margin: 0;
     list-style-type: none;
-    max-width: 100%;
+    background-color: $white;
     border-left: 1px solid $white-gray;
     border-right: 1px solid $white-gray;
+    box-shadow: 0px 0px 26px -2px rgba(0, 0, 0,.3);
     cursor: pointer;
 }
 
@@ -134,6 +144,13 @@
     &.active {
         transform: rotate(-180deg)
     }
+}
+
+.dropdownArrow {
+    position: absolute;
+    right: 10px;
+    top: calc(50% + 5px);
+    pointer-events: none;
 }
 
 .errorMessage {
